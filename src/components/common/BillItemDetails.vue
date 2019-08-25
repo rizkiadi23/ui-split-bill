@@ -13,12 +13,43 @@
 
         <b-collapse id="accordion-1" visible accordion="my-accordion" role="tabpanel">
           <b-card-body>
-            <b-card-text>Summary :</b-card-text>
             <b-card-text>
               <b-row>
-                <b-col>1 of 3</b-col>
-                <b-col>2 of 3</b-col>
-                <b-col>3 of 3</b-col>
+                <b-col>
+                  <b-list-group>
+                    <b-list-group-item>Item(s)</b-list-group-item>
+                    <b-list-group-item button v-for="billItm in billItem.item" :key="billItm._id">
+                      {{ billItm.itemName }}
+                      <b-badge variant="danger" pill>{{ billItm.quantity}}</b-badge>
+                      <b-badge
+                        variant="success"
+                        pill
+                        v-for="person in billItm.itemOwner"
+                        :key="person.user"
+                      >{{ person.user}}</b-badge>
+                    </b-list-group-item>
+                  </b-list-group>
+                </b-col>
+                <b-col>
+                  <b-list-group>
+                    <b-list-group-item>Price Before Tax</b-list-group-item>
+                    <b-list-group-item
+                      button
+                      v-for="billItm in billItem.item"
+                      :key="billItm._id"
+                    >Rp.{{ billItm.priceBeforeTax }}</b-list-group-item>
+                  </b-list-group>
+                </b-col>
+                <b-col>
+                  <b-list-group>
+                    <b-list-group-item>Price After Tax</b-list-group-item>
+                    <b-list-group-item
+                      button
+                      v-for="billItm in billItem.item"
+                      :key="billItm._id"
+                    >Rp.{{ billItm.priceAfterTax }}</b-list-group-item>
+                  </b-list-group>
+                </b-col>
               </b-row>
             </b-card-text>
           </b-card-body>
@@ -59,7 +90,10 @@ export default {
 
     removeItem() {
       if (confirm("Are you sure want to delete the item?")) {
-        this.deleteBillItem(this.billItem._id);
+        this.deleteBillItem({
+          billItemId: this.billItem._id,
+          billGroupId: this.$route.params.id
+        });
       } else {
         return;
       }

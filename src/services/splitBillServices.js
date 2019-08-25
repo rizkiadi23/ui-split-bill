@@ -42,6 +42,10 @@ const splitBillService = {
     return apiServices.del(`${appService}/api/v1/bills/${billGroupId}/delete`);
   },
 
+  deleteBillItemFromBillGroup(billItemId, billGroupId) {
+    return apiServices.patch(`${appService}/api/v1/bills/${billGroupId}/delete`, { billItemId: billItemId});
+  },
+
   // Bill Item APIs
   getBillItemById(billItemId) {
     return apiServices.get(`${appService}/api/v1/billitems/${billItemId}`);

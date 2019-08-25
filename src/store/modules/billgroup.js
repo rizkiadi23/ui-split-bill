@@ -2,7 +2,7 @@ import splitBillServices from "@/services/splitBillServices";
 
 const state = {
   billGroup: [],
-  billGroupById: {}
+  billGroupById: []
 };
 
 const getters = {
@@ -23,10 +23,11 @@ const actions = {
     commit("setBillItemGroup", response.data);
   },
 
-  async deleteBillItem({ commit }, id) {
-    const response = await splitBillServices.deleteBillItem(id);
+  async deleteBillItem({ commit }, ids) {
+    const response = await splitBillServices.deleteBillItem(ids.billItemId);
+    const response2 = await splitBillServices.deleteBillItemFromBillGroup(ids.billItemId, ids.billGroupId);
 
-    commit("removeBillItemInGroup", id);
+    commit("removeBillItemInGroup", ids.billItemId);
   }
 };
 

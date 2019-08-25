@@ -33,6 +33,18 @@ export default {
   },
   created() {
     this.fetchBillItem(this.$route.params.id);
+  },
+  watch: {
+    "billGroupById.billItemList": {
+      handler: function(newVal, oldVal) {
+        if (oldVal != undefined) {
+          if (oldVal.length != newVal.length) {
+            this.fetchBillItem(this.$route.params.id);
+          }
+        }
+      },
+      deep: true
+    }
   }
 };
 </script>
