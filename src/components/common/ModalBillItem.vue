@@ -1,8 +1,8 @@
 <template>
   <div>
-    <b-button @click="getAllUser()" variant="success" class="mr-1">Check</b-button>
-    <b-button @click="$bvModal.show('bv-modal-delete')" variant="danger" class="mr-1">Delete</b-button>
+    <b-button class="mr-1" :to="`/splitbill/${billGroupId}`" variant="success">Check</b-button>
     <b-button @click="$bvModal.show('bv-modal-edit')" variant="info" class="mr-1">Edit</b-button>
+    <b-button @click="$bvModal.show('bv-modal-delete')" variant="danger" class="mr-1">Delete</b-button>
 
     <b-modal id="bv-modal-read" hide-footer>
       <template slot="modal-title">
@@ -44,11 +44,11 @@ import splitBillServices from "@/services/splitBillServices.js";
 
 export default {
   name: "modalbillitem",
-  methods: {
-    async getAllUser() {
-      const response = await splitBillServices.getUserLists();
-      console.log(response);
+  props: {
+    billGroupId: {
+      type: String
     }
-  }
+  },
+  methods: {}
 };
 </script>
