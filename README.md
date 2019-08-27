@@ -1,4 +1,4 @@
-# portal_rizkiadi23
+# UI Split Bill
 
 ## Project setup
 ```
