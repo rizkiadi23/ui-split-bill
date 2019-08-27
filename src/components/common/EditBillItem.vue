@@ -38,7 +38,7 @@ export default {
     onSubmit(evt) {
       evt.preventDefault();
       this.updateBillItem(this.billGroupById);
-      this.$router.push(`/splitbill/${this.$route.params.id}`);
+      this.$router.push(`/splitbill`);
     },
 
     onReset(evt) {
