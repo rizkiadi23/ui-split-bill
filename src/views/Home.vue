@@ -1,9 +1,9 @@
 <template>
   <div class="home">
     <div>
-      <b-jumbotron header="BootstrapVue" lead="Bootstrap v4 Components for Vue.js 2">
-        <p>For more information visit website</p>
-        <b-button variant="primary" href="#">More Info</b-button>
+      <b-jumbotron header="Sue - ePortal" lead="Welcome to @rizkiadi23 Stupid Portal">
+        <p>Currenlty the feature is only stupid split bill</p>
+        <b-button variant="primary" href="#/splitbill">Check The Feature</b-button>
       </b-jumbotron>
     </div>
   </div>

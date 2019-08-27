@@ -34,6 +34,10 @@ const splitBillService = {
     return apiServices.get(`${appService}/api/v1/bills/${billGroupId}`);
   },
 
+  updateBillGroup(billGroupId, payload) {
+    return apiServices.patch(`${appService}/api/v1/bills/${billGroupId}/update`, payload);
+  },
+
   addBillItemToBillGroup(payload) {
     return apiServices.patch(`${appService}/api/v1/bills/addBillItem`, payload);
   },

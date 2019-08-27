@@ -23,6 +23,16 @@ const actions = {
     commit("setBillItemGroup", response.data);
   },
 
+  async createBillGroup({ commit }, payloads) {
+    const response = await splitBillServices.createBillGroup(payloads);
+  },
+
+  async updateBillItem({ commit }, payloads) {
+    const response = await splitBillServices.updateBillGroup(payloads._id, payloads);
+    
+    commit("setBillItemGroup", response.data);
+  },
+
   async deleteBillItem({ commit }, ids) {
     const response = await splitBillServices.deleteBillItem(ids.billItemId);
     const response2 = await splitBillServices.deleteBillItemFromBillGroup(ids.billItemId, ids.billGroupId);

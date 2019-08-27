@@ -1,6 +1,18 @@
 <template>
-  <div>
+  <div class="container">
     <b-container class="split_blii__container" v-show="this.$route.name == 'splitbill'">
+      <b-row
+        class="split_blii__container"
+        style="margin-top: 25px;"
+        v-show="this.$route.name == 'splitbill'"
+      >
+        <b-col md="8" offset-md="2">
+          <h1 style="text-align: center;">Welcome to Split Bill Simple Service...</h1>
+          <hr />
+          <b-button class="mr-1 float-sm-right" size="sm" variant="primary">Create New Bill Group</b-button>
+        </b-col>
+      </b-row>
+
       <b-row v-for="bill in allBillGroup" :key="bill.id">
         <b-col class="bill_card" md="8" offset-md="2">
           <b-card :title="bill.billGroupName" :sub-title="bill.status.toUpperCase()">

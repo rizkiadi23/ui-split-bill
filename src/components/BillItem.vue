@@ -1,8 +1,12 @@
 <template>
   <div class="container" style="margin-top: 20px;">
-    <h1>Bill Item Details</h1>
-    <b-button class="mr-1" variant="primary">Create</b-button>
-    <b-button class="mr-1" variant="warning">Edit</b-button>
+    <h1>{{billGroupById.billGroupName}}</h1>
+    <hr />
+    <h4>Bill Status: {{billGroupById.status}}</h4>
+    <hr />
+
+    <b-button class="mr-1" variant="primary" :to="`/splitbill/${billGroupById._id}/create`">Create</b-button>
+    <b-button class="mr-1" variant="warning" :to="`/splitbill/${billGroupById._id}/edit`">Edit</b-button>
     <b-button class="mr-1" to="/splitbill" variant="success">Back</b-button>
     <hr />
     <b-container>
@@ -33,18 +37,6 @@ export default {
   },
   created() {
     this.fetchBillItem(this.$route.params.id);
-  },
-  watch: {
-    "billGroupById.billItemList": {
-      handler: function(newVal, oldVal) {
-        if (oldVal != undefined) {
-          if (oldVal.length != newVal.length) {
-            this.fetchBillItem(this.$route.params.id);
-          }
-        }
-      },
-      deep: true
-    }
   }
 };
 </script>
