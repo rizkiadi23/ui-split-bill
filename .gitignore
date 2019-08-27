@@ -7,6 +7,9 @@ temp
 .env.local
 .env.*.local
 
+# remote env files
+.env
+
 # Log files
 npm-debug.log*
 yarn-debug.log*
