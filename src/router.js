@@ -1,7 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
-import BillItem from "@/components/BillItem.vue";
 
 Vue.use(Router);
 
@@ -30,7 +29,8 @@ export default new Router({
         {
           name: "splitbill-id",
           path: ":id",
-          component: BillItem
+          component: () =>
+            import(/* webpackChunkName: "splitbill-detail-chunk" */ "./components/BillItem.vue")
         }
       ]
     },
