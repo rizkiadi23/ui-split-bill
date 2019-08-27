@@ -25,7 +25,7 @@ export default new Router({
       path: "/splitbill",
       name: "splitbill",
       component: () =>
-        import(/* webpackChunkName: "about" */ "./views/SplitBill.vue"),
+        import(/* webpackChunkName: "splitbill-chunk" */ "./views/SplitBill.vue"),
       children: [
         {
           name: "splitbill-id",

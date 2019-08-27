@@ -22,7 +22,12 @@
 </template>
 
 <script>
-import ModalBillItem from "@/components/common/ModalBillItem.vue";
+// import ModalBillItem from "@/components/common/ModalBillItem.vue";
+const ModalBillItem = () =>
+  import(
+    /* webpackChunkName: "modal-bill-item" */ "../components/common/ModalBillItem.vue"
+  );
+
 import { mapGetters, mapActions } from "vuex";
 
 export default {
