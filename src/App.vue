@@ -14,3 +14,9 @@ export default {
   }
 };
 </script>
+
+<style>
+body {
+  margin-bottom: 60px;
+}
+</style>
